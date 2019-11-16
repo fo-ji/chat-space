@@ -1,0 +1,21 @@
+.main-chat
+  .main-chat__header
+    %ul.main-chat__header__left
+      %li.main-chat__header__left__groupname GROUP
+      %li.main-chat__header__left__membername fumiya
+    .main-chat__header__edit-btn Edit
+
+  .main-chat__message
+    .main-chat__message__upper-info
+      .main-chat__message__upper-info__talker shouya
+      .main-chat__message__upper-info__date 2019/11/14 22:57
+    .main-chat__message__text this is a first message.
+
+  .main-chat__form
+    %form.main-chat__form__new__message
+      .main-chat__form__new__message__input-box
+        %input{type: "text", name: "message[content]", class: "main-chat__form__new__message__input-box__text", id: "message_content", placeholder: "type a message"}
+        %label{class: "main-chat__form__new__message__input-box__image", for: "message_image"}
+          = icon('fas', 'image')
+          %input{type: "file", name: "message[image]", class: "main-chat__form__new__message__input-box__image__file", id: "message_image"}
+      %input{type: "submit", name: "commit", value: "Send", class: "main-chat__form__new__message__submit-btn"}
