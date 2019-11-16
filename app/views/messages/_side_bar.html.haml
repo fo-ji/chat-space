@@ -1,0 +1,16 @@
+.side-bar
+  .side-bar__header
+    .side-bar__header__contents
+      .side-bar__header__contents__username fumiya
+      %ul.side-bar__header__contents__menu
+        %li
+          = link_to "#", class: "side-bar__header__contents__menu__register-btn" do
+            = icon('fas', 'edit')
+        %li
+          = link_to "#", class: "side-bar__header__contents__menu__edit-btn" do
+            = icon('fas', 'cog')
+  .side-bar__contents
+    .side-bar__contents__group-name
+      12345
+    .side-bar__contents__latest-message
+      Hello
