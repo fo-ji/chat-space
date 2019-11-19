@@ -11,7 +11,9 @@
           = link_to edit_user_path(current_user), class: "side-bar__header__contents__menu__edit-btn" do
             = icon('fas', 'cog')
   .side-bar__contents
-    .side-bar__contents__group-name
-      12345
-    .side-bar__contents__latest-message
-      Hello
+    - current_user.groups.each do |group|
+      = link_to group_messages_path(group) do
+        .side-bar__contents__group-name
+          = group.name
+        .side-bar__contents__latest-message
+          メッセージはまだありません
