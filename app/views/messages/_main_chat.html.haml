@@ -1,15 +1,14 @@
 .main-chat
   .main-chat__header
     %ul.main-chat__header__left
-      %li.main-chat__header__left__groupname GROUP
-      %li.main-chat__header__left__membername fumiya
+      %li.main-chat__header__left__groupname
+        = @group
+      %li.main-chat__header__left__membername
+        = current_user.name
     .main-chat__header__edit-btn Edit
 
-  .main-chat__message
-    .main-chat__message__upper-info
-      .main-chat__message__upper-info__talker shouya
-      .main-chat__message__upper-info__date 2019/11/14 22:57
-    .main-chat__message__text this is a first message.
+  .main-chat__messages
+    = render partial: "message", collection: @messages
 
   .main-chat__form
     = form_for [@group, @message] do |f|
