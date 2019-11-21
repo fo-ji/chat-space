@@ -12,10 +12,11 @@
     .main-chat__message__text this is a first message.
 
   .main-chat__form
-    %form.main-chat__form__new__message
-      .main-chat__form__new__message__input-box
-        %input{type: "text", name: "message[content]", class: "main-chat__form__new__message__input-box__text", id: "message_content", placeholder: "type a message"}
-        %label{class: "main-chat__form__new__message__input-box__image", for: "message_image"}
-          = icon('fas', 'image')
-          %input{type: "file", name: "message[image]", class: "main-chat__form__new__message__input-box__image__file", id: "message_image"}
-      %input{type: "submit", name: "commit", value: "Send", class: "main-chat__form__new__message__submit-btn"}
+    = form_for [@group, @message] do |f|
+      .main-chat__form__new__message
+        .main-chat__form__new__message__input-box
+          = f.text_field :content, class: "main-chat__form__new__message__input-box__text", placeholder: "type a message"
+          = f.label :image, class: "main-chat__form__new__message__input-box__image" do
+            = icon('fas', 'image')
+            = f.file_field :image, class: 'main-chat__form__new__message__input-box__image__file'
+          = f.submit 'Send', class: 'main-chat__form__new__message__submit-btn'
