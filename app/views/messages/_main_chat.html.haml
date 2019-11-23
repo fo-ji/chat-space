@@ -2,9 +2,10 @@
   .main-chat__header
     %ul.main-chat__header__left
       %li.main-chat__header__left__groupname
-        = @group
+        = @group.name
       %li.main-chat__header__left__membername
-        = current_user.name
+        - @group.group_users.each do |group_user|
+          = group_user.user.name
     .main-chat__header__edit-btn Edit
 
   .main-chat__messages
