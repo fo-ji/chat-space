@@ -6,7 +6,8 @@
       %li.main-chat__header__left__membername
         - @group.group_users.each do |group_user|
           = group_user.user.name
-    .main-chat__header__edit-btn Edit
+    = link_to edit_group_path(@group.id), class:'main-chat__header__edit-btn' do
+      = 'Edit'
 
   .main-chat__messages
     = render partial: "message", collection: @messages
