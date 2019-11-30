@@ -1,7 +1,11 @@
 $(function(){
   function buildHTML(message){
     if ( message.image ) {
-      var html = 
+      show_image = `<img class="main-chat__message__text__image" src=${message.image}>`
+    } else {
+      show_image = ''
+    };
+    var html = 
       `<div class="main-chat__message" data-message-id=${message.id}>
         <div class="main-chat__message__upper-info">
           <div class="main-chat__message__upper-info__talker">
@@ -14,26 +18,9 @@ $(function(){
         <div class="main-chat__message__text">
           ${message.content}
         </div>
-        <img class="main-chat__message__text__image" src=${message.image} >
-      </div>`
-    return html; 
-  } else {
-      var html = 
-      `<div class="main-chat__message" data-message-id=${message.id}>
-        <div class="main-chat__message__upper-info">
-          <div class="main-chat__message__upper-info__talker">
-            ${message.user_name}
-          </div>
-          <div class="main-chat__message__upper-info__date">
-            ${message.date}
-          </div>
-        </div>
-        <div class="main-chat__message__text">
-          ${message.content}
-        </div>
+        ${show_image}
       </div>`
       return html;
-    };
   }
 
   $("#new_message").on('submit', function(e){
