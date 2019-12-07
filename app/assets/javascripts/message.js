@@ -61,7 +61,7 @@ $(function(){
         $(".main-chat__messages").animate({ scrollTop: $(".main-chat__messages")[0].scrollHeight}, 'fast');
       })
       .fail(function() {
-        console.log('error');
+        alert("メッセージ更新に失敗しました");
       });
     };
   }
